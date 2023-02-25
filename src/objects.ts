@@ -7,6 +7,10 @@
  */
 
 export function mapShare(someMap): object {
+    let newMap = {...someMap};
+    if(someMap.key("a")){
+        newMap.key("b").value = someMap.Key("a").Value;
+    }
     return {};
 }
 

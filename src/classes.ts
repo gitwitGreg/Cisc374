@@ -20,12 +20,49 @@
  *      isEmpty(): boolean
  *          Returns whether the account is empty (i.e., at zero).
  *
+ *
  */
+class bankAccount{
+    money : number;
+    name : string;
 
+    bankAccount(name: string){
+        this.name = name;
+        this.money = 0;
+    }
+
+    deposit(added_amount: number){
+        this.money = this.money + added_amount;
+        console.log("you added $" +added_amount + "your new total is " + this.money);
+    }
+    withdrawl(withdrawl_amount: number){
+        if ( this.money << withdrawl_amount){
+            console.log("Please withdrawl amount lass than the account balance");
+        }
+        else{
+            this.money = this.money - withdrawl_amount;
+            console.log("new balance is " + this.money)
+        }
+    }
+    isEmpty(){
+        if (this.money === 0){
+            return (this.money === 0);
+        }
+    }
+}
 /**
  * (2) Make 3 sample bank accounts and demonstrate withdrawing and depositing money into them.
  */
+    let banker1 = new bankAccount();
+    let banker2 = new bankAccount();
+    let banker3 = new bankAccount();
+    banker1.bankAccount("greg");
+    banker2.bankAccount("macy");
+    banker3.bankAccount("julz")
 
+    banker1.deposit(500);
+    banker1.withdrawl(100);
+    banker1.isEmpty();
 
 /**
  * (3) Define the following class:
@@ -57,7 +94,38 @@
  *             Update the ship's position to the new location.
  *
  */
-
+    class spaceShip{
+        x: number;
+        y: number;
+        freinds : Array<spaceShip>;
+        callSign: string;
+        ammo : number;
+        onFire: boolean;
+        spaceShip(){
+            this.x = 0;
+            this.y = 0;
+            this.ammo = 0;
+            this.freinds = [];
+        }
+        shoot():void{
+            if (this.ammo > 0){
+                this.ammo = this.ammo -1;
+                console.log("you have fired a shot");
+            }
+            else{
+                this.onFire = true;
+            }
+        }
+        collectAmmo(clipAmount: number):void{
+            this.ammo = this.ammo + clipAmount;
+        }
+        makeNewFreind(freind :spaceShip): boolean {
+            let freinds = new spaceShip();
+            freinds.spaceShip();
+            this.freinds.push(freinds);
+            return (true);
+        }
+    }
 /**
  * (4) Make 3 example ships, ensure that at least two of them are friends, and try
  * calling each of the methods.

@@ -4,7 +4,13 @@
  * an empty list.
  */
 export function makeEnds(nums: Array<number>): Array<number> {
-    return [];
+    if(nums.length === 0){
+        return [];
+    }
+    else{
+        let newArr = [nums[0], nums[-1]]
+        return newArr;
+    }
 }
 
 /**
@@ -13,6 +19,14 @@ export function makeEnds(nums: Array<number>): Array<number> {
  * positions in the array.
  */
 export function unlucky1(nums: Array<number>): boolean {
+    let i = 0;
+    for(i; i < nums.length; i++){
+        if(nums[i]== 0 || nums[i] == nums.length -2){
+            if(nums[i+1] == 3){
+                 return true;
+            }
+        }
+    }
     return false;
 }
 
